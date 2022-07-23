@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path"
-	"strings"
 
 	"github.com/google/uuid"
 )
@@ -25,10 +23,6 @@ func GenerateFile(format string, content string) string {
 
 	file.WriteString(content)
 
-	if format=="cpp" {
-		return ExecuteCpp(filepath)
-	}else{
-		return strings.Split(path.Base(filepath), ".")[0]
-	}
+	return filepath
 	
 }

@@ -17,11 +17,11 @@ func main() {
 	})
 
 	app.Get("/output/cpp", func(c *fiber.Ctx) error{
-		return c.SendString(OutputCpp(jobID))
+		return c.SendString(ExecuteCpp(jobID))
 	})
 
 	app.Get("/output/py", func(c *fiber.Ctx) error{
-		return c.SendString(OutputPy(jobID))
+		return c.SendString(ExecutePy(jobID))
 	})
 
 	app.Post("/run/cpp", func(c *fiber.Ctx) error{
