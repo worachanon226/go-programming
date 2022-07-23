@@ -20,14 +20,17 @@ func main() {
 		return c.SendString(OutputCpp(jobID))
 	})
 
+	app.Get("/output/py", func(c *fiber.Ctx) error{
+		return c.SendString(OutputPy(jobID))
+	})
+
 	app.Post("/run/cpp", func(c *fiber.Ctx) error{
 		jobID = GenerateFile("cpp",string(c.Body()))
-		
 		return c.SendString("Cpp file is generated")
 	})
 
 	app.Post("/run/py", func(c *fiber.Ctx) error{
-		GenerateFile("py",string(c.Body()))
+		jobID = GenerateFile("py",string(c.Body()))
 		return c.SendString("Python file is generated")
 	})
 
