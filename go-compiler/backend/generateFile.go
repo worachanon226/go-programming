@@ -8,10 +8,10 @@ import (
 	"github.com/google/uuid"
 )
 
-func GenerateFile(format string, content string){
+func GenerateFile(format string, content string) string {
 	
 	id := uuid.New()
-	path := fmt.Sprintf("./components/%s.%s",id.String(),format)
+	path := fmt.Sprintf("components/%s/code/%s.%s",format,id.String(),format)
 
 	file, err := os.Create(path)
 	
@@ -22,4 +22,6 @@ func GenerateFile(format string, content string){
 	defer file.Close()
 
 	file.WriteString(content)
+
+	return ExecuteCpp(path)
 }
