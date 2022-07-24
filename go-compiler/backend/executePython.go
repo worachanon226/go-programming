@@ -6,8 +6,7 @@ import (
 	"os/exec"
 )
 
-func ExecutePy(jobID string) string {
-	path := fmt.Sprintf("components/"+"py/"+"code/"+jobID+".py")
+func ExecutePy(path string) string {
 
 	cmd := exec.Command("python",path)
 	

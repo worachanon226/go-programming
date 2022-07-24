@@ -5,12 +5,18 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 var jobID = ""
 
 func main() {
 	app := fiber.New()
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "http://localhost:5173",
+		AllowHeaders: "Origin, Context-Type, Accept",
+	}))
 
 	app.Get("/servercheck", func(c *fiber.Ctx) error{
 		return c.SendString("Server is OK.")
@@ -34,6 +40,6 @@ func main() {
 		return c.SendString("Python file is generated")
 	})
 
-	fmt.Printf("Server is running on port 8000.\n")
-	log.Fatal(app.Listen(":8000"))
+	fmt.Printf("Server is running on port 8080.\n")
+	log.Fatal(app.Listen(":8080"))
 }
