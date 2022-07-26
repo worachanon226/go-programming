@@ -10,8 +10,6 @@ type List struct {
 	ID    int    `json:"id"`
 	Title string `json:"title"`
 	Body  string `json:"body"`
-	Pic   string `json:"pic"`
-	Star  bool   `json:"star"`
 }
 
 func main() {
