@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb+srv://worahcnon226:1234@cluster0.b6temx2.mongodb.net/?retryWrites=true&w=majority"))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb+srv://<username>:<password>@cluster0.b6temx2.mongodb.net/?retryWrites=true&w=majority"))
 	if err != nil {
 		panic(err)
 	}
@@ -21,12 +21,12 @@ func main() {
 			panic(err)
 		}
 	}()
-	coll := client.Database("sample_mflix").Collection("movies")
-	title := "Back to the Future"
+	coll := client.Database("what-the-food").Collection("menu")
+	name := "ส้มตำ"
 	var result bson.M
-	err = coll.FindOne(context.TODO(), bson.D{{Key: "title", Value: title}}).Decode(&result)
+	err = coll.FindOne(context.TODO(), bson.D{{Key: "name", Value: name}}).Decode(&result)
 	if err == mongo.ErrNoDocuments {
-		fmt.Printf("No document was found with the title %s\n", title)
+		fmt.Printf("No document was found with the name %s\n", name)
 		return
 	}
 	if err != nil {
