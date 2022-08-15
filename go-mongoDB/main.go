@@ -22,7 +22,7 @@ func main() {
 		}
 	}()
 	coll := client.Database("what-the-food").Collection("menu")
-	name := "ส้มตำ"
+	name := "som-tum"
 	var result bson.M
 	err = coll.FindOne(context.TODO(), bson.D{{Key: "name", Value: name}}).Decode(&result)
 	if err == mongo.ErrNoDocuments {
