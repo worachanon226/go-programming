@@ -1,0 +1,12 @@
+{
+	"Name": "John2",
+	"Age": 23,
+	"Contact": "3333333,",
+	"Company": "Techh",
+	"Address": {
+		"City": "Bangalore",
+		"State": "Karnataka",
+		"Country": "India",
+		"Pincode": 3333333
+	}
+}
