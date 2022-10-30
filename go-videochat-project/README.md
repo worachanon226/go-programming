@@ -1,17 +1,37 @@
+# Go-VideoChat-Project
+
+## Project Overview
+
+```bash
+.
+│
 ├───assets
-│ ├───font
-│ ├───javascript
-│ └───stylesheets
+│   ├───font
+│   ├───javascript
+│   └───stylesheets
 ├───cmd
+│       main.go
+│
 ├───containers
-│ ├───composes
-│ └───images
+│   ├───composes
+│   └───images
 ├───internal
-│ ├───handlers
-│ └───server
+│   ├───handlers
+│   │       chat.go
+│   │       room.go
+│   │       stream.go
+│   │       welcome.go
+│   │
+│   └───server
+│           server.go
+│
 ├───pkg
-│ ├───chat
-│ └───webrtc
+│   ├───chat
+│   │       client.go
+│   │       hub.go
+│   │
+│   └───webrtc
 └───views
-├───layouts
-└───partials
+    ├───layouts
+    └───partials
+```
